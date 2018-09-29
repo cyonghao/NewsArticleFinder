@@ -30,7 +30,17 @@ def main():
     #     all_articles = newsapi.get_everything(q=keywords, sources=selected_sources, from_param=from_date, to_param=to_date, sort_by="relevancy")
 
     all_articles = newsapi.get_everything(q=keywords, sources=selected_sources, sort_by="relevancy")
-    print(all_articles)
+    all_articles = all_articles['articles']
+    for article in all_articles:
+        source_name = article['source']['name']
+        article_title = article['title']
+        article_desc = article['description']
+        article_url = article['url']
+        print(source_name)
+        print("Title:", article_title)
+        print("Description:", article_desc)
+        print("URL:", article_url)
+        print("\n")
 
 if __name__ == "__main__":
     # Init
