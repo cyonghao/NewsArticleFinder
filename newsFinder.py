@@ -6,10 +6,13 @@ def main():
     country = str(input("Enter the country of choice:  "))
 
     # User input for language of source
-    language = str(input("Enter the language of choice:  "))
+    # language = str(input("Enter the language of choice:  "))
 
     # Displays list of sources based on country of choice
-    sources = newsapi.get_sources(country=country, language=language)
+    avail_sources = newsapi.get_sources(country=country)
+    avail_sources = avail_sources['sources']
+    for avail_source in avail_sources:
+        print(avail_source['id'])
 
 if __name__ == "__main__":
     # Init
