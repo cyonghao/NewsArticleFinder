@@ -14,6 +14,11 @@ def main():
     for avail_source in avail_sources:
         print(avail_source['id'])
 
+    selected_sources = str(input("Enter the source(s) of your choice, each separated with a comma:   "))
+    selected_sources = [selected_source.strip() for selected_source in selected_sources.split(',')]
+    print(selected_sources)
+
+
 if __name__ == "__main__":
     # Init
     newsapi = NewsApiClient(api_key=TOKEN)
